@@ -28,10 +28,6 @@
     display: block;
     font-weight: 900; font-size: 55px; letter-spacing: -1.7px;
     line-height: 0.8em;
-    background: linear-gradient(157deg, rgba(77,55,115,1) 0%, rgba(141,91,212,1) 42%, rgba(199,168,244,1) 69%, rgba(91,41,163,1) 85%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Exo", sans-serif;
 }
 
 #login {
@@ -106,7 +102,7 @@
 
 #s_btn1{
     border: none;
-    background: linear-gradient(to right, #8117fe, #af28fe);
+     background-color: #b7d5f4;
     border-radius: 30px;
     color: #fff;
     z-index: 1;
@@ -114,9 +110,9 @@
 }
 
 #s_btn1:hover{
-    border: 1px solid #8117fe;
+    border: 1px solid #b7d5f4;
 
-    color: #8117fe;
+    color: #b7d5f4;
     border-radius: 30px;
     background: #fff;
     letter-spacing: 3px;
@@ -126,7 +122,7 @@
 <body>
 <div id="login">
   <div id="top_wrap">
-      <h1><a href="#">LOGIN</a></h1>
+      <h1>LOGIN</h1>
   </div>
 
   <div id="login_con">
