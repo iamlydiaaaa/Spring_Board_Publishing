@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <style>
         html, body, div, span, h1, h2, h3, p, a,  input, select, option, table, tr, th, td,search,input,textarea {
-		margin: 0;padding: 0;border: 0;box-sizing: border-box; color: #333; texdt-decoration: none;}
+		margin: 0;padding: 0;border: 0;box-sizing: border-box; color: #333; text-decoration: none;}
          .wrap{max-width: 1000px; margin: 0 auto; padding: 50px;}
         .tit{text-align: center; font-size: 30px; font-weight: bold; background-color: #eefaff; padding: 50px 0; } 
         .sub_tit{text-align: center; margin-bottom: 30px; margin-top: 20px;}
@@ -23,7 +23,7 @@
         .board_write_table tr{border-bottom: 1px solid #ccc;}
         .board_write_table tr>td:nth-child(1){width: 150px;}
         .board_write_table tr>td input{ border: 1px solid #ccc; width: 100%; height: 40px; line-height: 40px;}
-        .board_write_table .txt_area{width: 100%; height: 300px; border: 1px solid #ccc; resize: none;}
+        .board_write_table .txt_area{width: 100%; height: 300px; border: 1px solid #ccc; resize: none; padding: 20px;}
         
         .board_edit{display: block;width: 100%; height: 50px; background-color: #4a4242; color: #fff; cursor: pointer;}
         .board_edit:hover{background-color: #362c2c;}
@@ -38,8 +38,8 @@
 <body>
    <div class="wrap">
 	    <h1 class="tit">글 등록</h1>
-	    <h3 class="sub_tit"><a href="logout_proc.jsp">Log-out</a></h3>
-	    <form action="insertBoard_proc.jsp" method="post">
+	    <h3 class="sub_tit"><a href="logout.do">Log-out</a></h3>
+	    <form action="insertBoard.do" method="post">
 	        <table class="board_write_table">
 	            <tr>
 	                <td>제목</td>

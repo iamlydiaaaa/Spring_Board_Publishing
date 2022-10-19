@@ -127,7 +127,7 @@
 
   <div id="login_con">
       <div id="login1" class="login_box">
-          <form action="login_proc.jsp" method="post">
+          <form action="login.do" method="post">
               <p class="u_txt">
 	              <label for="u_id" class="u_id_txt">아이디</label>
 	              <input type="text" id="u_id" name="id" autocomplete="off">

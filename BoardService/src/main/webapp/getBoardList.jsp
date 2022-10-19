@@ -4,9 +4,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 
 <%
-	BoardVO vo = new BoardVO();
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardVO> boardList = boardDAO.getBoardList(vo);
+   List<BoardVO> boardList = (List) session.getAttribute("boardList");
 %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +16,7 @@
     <title>글 목록</title>
     <style>
         html, body, div, span, h1, h2, h3, p, a,  input, select, option, table, tr, th, td,search,input {
-		margin: 0;padding: 0;border: 0;box-sizing: border-box; color: #333; texdt-decoration: none;}
+      margin: 0;padding: 0;border: 0;box-sizing: border-box; color: #333; text-decoration: none;}
         .wrap{max-width: 1000px; margin: 0 auto; padding: 50px;}
         .tit{text-align: center; font-size: 30px; font-weight: bold; background-color: #eefaff; padding: 50px 0; } 
         .sub_tit{text-align: center; margin-bottom: 30px; margin-top: 20px;}
@@ -43,20 +41,20 @@
 <body>
    <div class="wrap">
     <h1 class="tit">글 목록</h1>
-    <h3 class="sub_tit"><strong>진경</strong>님 환영합니다.  <a href="logout_proc.jsp">Log-out</a></h3>
+    <h3 class="sub_tit"><strong>진경</strong>님 환영합니다.  <a href="logout.do">Log-out</a></h3>
     
 <!--    검색 시작-->
 <form action="getBoardList.jsp" method="post">
     <table class="board_table b_search">
-    	<tr>
-	        <td>
-	            <select name="searchCondition">
-	                <option value="TITLE">제목</option>
-	                <option value="CONTENT">내용</option>
-	            </select>
-	            <input type="text" name="searchKeyword"/>
-	            <input type="submit" value="검색">
-	        </td>
+       <tr>
+           <td>
+               <select name="searchCondition">
+                   <option value="TITLE">제목</option>
+                   <option value="CONTENT">내용</option>
+               </select>
+               <input type="text" name="searchKeyword"/>
+               <input type="submit" value="검색">
+           </td>
         </tr>
     </table>
 </form>
@@ -73,7 +71,7 @@
         <% for(BoardVO board : boardList) { %>
         <tr>
             <td><%= board.getSeq() %></td>
-            <td><a href="getBoard.jsp?seq=<%= board.getSeq() %>">
+            <td><a href="getBoard.do?seq=<%= board.getSeq() %>">
                 <%= board.getTitle() %></a></td>
             <td><%= board.getWriter() %></td>
             <td><%= board.getRegDate() %></td>
