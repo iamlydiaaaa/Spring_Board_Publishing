@@ -57,8 +57,7 @@
             </tr>
             <tr>
                 <td>내용</td>
-                <td align="left"><textarea name="content" cols="40" rows="10" class="txt_area">
-            <%= board.getContent() %></textarea></td>
+                <td align="left"><textarea name="content" cols="40" rows="10" class="txt_area"><%= board.getContent() %></textarea></td>
             </tr>
             <tr>
                 <td>등록일</td>
