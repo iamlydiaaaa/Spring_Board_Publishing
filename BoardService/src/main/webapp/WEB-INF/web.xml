@@ -6,7 +6,16 @@
 
 	<servlet>
 		<servlet-name>action</servlet-name>
-		<servlet-class>com.springbook.view.controller.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		
+		<!-- 서블릿 초기화 파라미터 :-->
+		<!-- 원래 스프링 컨테이너를 위한 설정 파일의 이름과 위치는 서블릿 이름을 기준으로 자동으로 결정되지만, -->
+		<!-- 필요에 따라서 "init-param"를 사용하여 설정 파일의 이름을 바꾸거나 위치를 변경할 수도 있다. -->
+		<!-- 아래와 같이 설정하면, contextConfigLocation라는 파라미터로 설정한 정보를 추출한다. -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
+		</init-param>
 	</servlet>
 		
 	<servlet-mapping>

@@ -4,13 +4,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%
+
+	//세션에 저장된 게시글 정보를 꺼낸다
+   BoardVO board = (BoardVO) session.getAttribute("board");
+%>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <style>
-        html, body, div, span, h1, h2, h3, p, a,  input, select, option, table, tr, th, td,search,input,textarea {
+        html, body, div, span, h1, h2, h3, p, a, input, select, option, table, tr, th, td,search,input,textarea {
 		margin: 0;padding: 0;border: 0;box-sizing: border-box; color: #333; text-decoration: none;}
          .wrap{max-width: 1000px; margin: 0 auto; padding: 50px;}
         .tit{text-align: center; font-size: 30px; font-weight: bold; background-color: #eefaff; padding: 50px 0; } 
@@ -22,7 +27,7 @@
         .board_write_table td{padding: 10px 0; line-height: 40px; height: 40px;}
         .board_write_table tr{border-bottom: 1px solid #ccc;}
         .board_write_table tr>td:nth-child(1){width: 150px;}
-        .board_write_table tr>td input{ border: 1px solid #ccc; width: 100%; height: 40px; line-height: 40px;}
+        .board_write_table tr>td input{ border: 1px solid #ccc; width: 100%; height: 40px; line-height: 40px; padding-left: 20px;}
         .board_write_table .txt_area{width: 100%; height: 300px; border: 1px solid #ccc; resize: none; padding: 20px;}
         
         .board_edit{display: block;width: 100%; height: 50px; background-color: #4a4242; color: #fff; cursor: pointer;}
@@ -32,43 +37,48 @@
         .board_btns a{text-align: center; text-decoration: none; border-bottom: 3px solid #333; display: inline-block; margin: 0 5px; padding: 5px 10px;}
         .board_btns a:hover{border-bottom: 3px solid #5e92c6;}
     </style>
-    <title>새글등록</title>
+    <title>글 상세</title>
 </head>
 
 <body>
    <div class="wrap">
-	    <h1 class="tit">글 등록</h1>
-	    <h3 class="sub_tit"><a href="logout.do">Log-out</a></h3>
-	    <form action="insertBoard.do" method="post">
-	        <table class="board_write_table">
-	            <tr>
-	                <td>제목</td>
-	                <td align="left">
-	                    <input type="text" name="title" />
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>작성자</td>
-	                <td align="left">
-	                    <input type="text" name="writer" size="10" />
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>내용</td>
-	                <td align="left">
-	                    <textarea name="content" cols="40" rows="10" class="txt_area"></textarea>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td colspan="2" align="center">
-	                    <input type="submit" value="새글 등록" class="board_edit"/>
-	                </td>
-	            </tr>
-	        </table>
-	    </form>
-	    <p class="board_btns">         
-	           <a href="getBoardList.do">글 목록 가기</a>
-	    </p>
+    <h1 class="tit">글 상세</h1>
+    <h3 class="sub_tit"><a href="logout.do">Log-out</a></h3>
+    <form action="updateBoard.do" method="post">
+    <input name="seq" type="hidden" value="${board.seq}" />
+        <table class="board_write_table">
+            <tr>
+                <td>제목</td>
+                <td align="left"><input name="title" type="text" value="${board.title}" /></td>
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td align="left">${board.writer}</td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td align="left"><textarea name="content" cols="40" rows="10" class="txt_area">${board.content}</textarea></td>
+            </tr>
+            <tr>
+                <td>등록일</td>
+                <td align="left">${board.regDate}</td>
+            </tr>
+            <tr>
+                <td>조회수</td>
+                <td align="left">${board.cnt}</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" class="board_edit" value="글 수정" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p class="board_btns">         
+           <a href="insertBoard.jsp">글 등록</a>
+           <a href="deleteBoard.do?seq=${board.seq}">글삭제</a>
+           <a href="getBoardList.do">글 목록</a>
+       </p>
    </div>
 </body>
 
